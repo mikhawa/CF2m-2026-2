@@ -1,0 +1,90 @@
+services:
+  # PHP-FPM Service
+  php:
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile
+    container_name: cf2m_php
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+      - composer_cache:/home/www/.composer
+    networks:
+      - cf2m_network
+    depends_on:
+      - mariadb
+
+  # Nginx Service
+  nginx:
+    build:
+      context: ./docker/nginx
+      dockerfile: Dockerfile
+    container_name: cf2m_nginx
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html:ro
+    networks:
+      - cf2m_network
+    depends_on:
+      - php
+
+  # MariaDB Service
+  mariadb:
+    build:
+      context: ./docker/mariadb
+      dockerfile: Dockerfile
+    container_name: cf2m_mariadb
+    restart: unless-stopped
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-cf2m}
+      MYSQL_USER: ${MYSQL_USER:-cf2m}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-cf2m}
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - cf2m_network
+
+  # Mailhog Service (Email testing for development)
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: cf2m_mailhog
+    restart: unless-stopped
+    ports:
+      - "1025:1025"   # SMTP server
+      - "8025:8025"   # Web UI
+    networks:
+      - cf2m_network
+
+  # phpMyAdmin Service (Database management)
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: cf2m_phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: mariadb
+      PMA_PORT: 3306
+      PMA_USER: ${MYSQL_USER:-cf2m}
+      PMA_PASSWORD: ${MYSQL_PASSWORD:-cf2m}
+      UPLOAD_LIMIT: 50M
+    networks:
+      - cf2m_network
+    depends_on:
+      - mariadb
+
+networks:
+  cf2m_network:
+    driver: bridge
+
+volumes:
+  mariadb_data:
+    driver: local
+  composer_cache:
+    driver: local
