@@ -40,3 +40,12 @@ Refonte du site web du Centre de Formation 2 Mille (CF2M), organisme de formatio
 - Environemment de développement : WSL2 (Ubuntu) sur Windows 11
 - Environement de production prévu : Serveur Linux avec Apache et Nginx et MariaDB
 
+## 3. Instructions pour Claude Code
+Lorsque vous travaillez sur ce dépôt, veuillez suivre les directives ci-dessous :
+- Relancez toujours les conteneurs Docker avant de commencer à travailler : utilisez `docker-compose up -d`.
+- Testez toutes les modifications localement avant de les valider.
+- Respectez la structure du projet et les conventions de codage Symfony.
+- Utilisez les services et bundles Symfony recommandés pour les fonctionnalités spécifiques (EasyAdmin, VichUploader, LiipImagine, Messenger).
+- Assurez-vous que toutes les modifications sont compatibles avec PHP 8.4 et Symfony 7.4 LTS.
+- Documentez toute nouvelle fonctionnalité ou modification importante dans un dossier `docs/`, créez des fichiers ordonnés au sein de ce dossier au format Markdown.
+- L'URL locale de l'application Symfony est : http://localhost:8080
