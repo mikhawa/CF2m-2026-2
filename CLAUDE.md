@@ -53,3 +53,35 @@ Lorsque vous travaillez sur ce dépôt, veuillez suivre les directives ci-dessou
 - L'URL locale de l'application Symfony est : http://localhost:8080
 - L'URL locale de PhpMyAdmin est : http://localhost:8081 (utilisateur : cf2m, mot de passe : cf2m)
 - L'URL locale de Mailhog est : http://localhost:8025
+
+### 4 Entités Doctrine
+
+#### 6.1 Entités
+
+**Entités à créer selon le cahier des charges:**
+
+1. **User** - Utilisateurs avec rôles
+2. **Formation** - Formations proposées
+3. **Registration** - Inscriptions aux formations
+4. **Page** - Pages statiques du site
+5. **Article** - Articles de blog
+6. **Comment** - Commentaires sur articles
+7. **Portfolio** - Portfolio utilisateurs
+8. **Testimonial** - Témoignages
+9. **Partner** - Partenaires
+10. **ContactMessage** - Messages de contact
+11. **NotificationRecipient** - Destinataires notifications
+12. **SiteConfig** - Configuration du site
+
+### 6.2 Contrôleurs
+
+**Statut:** Aucun contrôleur créé
+
+**Contrôleurs à créer:**
+- HomeController
+- FormationController
+- RegistrationController
+- ContactController
+- ProfileController
+- ArticleController
+- CommentController
