@@ -337,10 +337,10 @@ Root password: root
 
 ### Phase 2: Fondations Backend (À FAIRE)
 
-- [ ] Installer EasyAdmin 4
-- [ ] Installer VichUploaderBundle
-- [ ] Installer LiipImagineBundle
-- [ ] Installer StofDoctrineExtensionsBundle
+- [X] Installer EasyAdmin 4
+- [X] Installer VichUploaderBundle
+- [X] Installer LiipImagineBundle
+- [X] Installer StofDoctrineExtensionsBundle
 - [ ] Créer entité User
 - [ ] Créer entité Formation
 - [ ] Créer entité Registration
