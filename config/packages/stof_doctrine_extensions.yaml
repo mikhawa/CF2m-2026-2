@@ -1,0 +1,20 @@
+stof_doctrine_extensions:
+    default_locale: fr_FR
+    orm:
+        default:
+            # Génération automatique des slugs
+            sluggable: true
+            # Timestamps createdAt/updatedAt automatiques
+            timestampable: true
+            # Soft delete (suppression logique)
+            softdeleteable: false
+            # Tri automatique
+            sortable: false
+            # Arborescence (pour catégories)
+            tree: false
+            # Traductions
+            translatable: false
+            # Loggable (historique des modifications)
+            loggable: false
+            # Blameable (auteur des modifications)
+            blameable: true

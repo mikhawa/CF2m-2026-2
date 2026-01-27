@@ -1,0 +1,85 @@
+liip_imagine:
+    # Driver de manipulation d'images (gd ou imagick)
+    driver: gd
+
+    # Résolveur web pour les URL des images
+    resolvers:
+        default:
+            web_path:
+                web_root: '%kernel.project_dir%/public'
+                cache_prefix: 'media/cache'
+
+    # Filtres de redimensionnement
+    filter_sets:
+        cache: ~
+
+        # Miniature carrée
+        thumb_small:
+            quality: 85
+            filters:
+                thumbnail:
+                    size: [100, 100]
+                    mode: outbound
+                    allow_upscale: false
+
+        # Miniature moyenne
+        thumb_medium:
+            quality: 85
+            filters:
+                thumbnail:
+                    size: [250, 250]
+                    mode: outbound
+                    allow_upscale: false
+
+        # Image de liste (formations, articles)
+        list_image:
+            quality: 85
+            filters:
+                thumbnail:
+                    size: [400, 300]
+                    mode: outbound
+                    allow_upscale: false
+
+        # Image de detail
+        detail_image:
+            quality: 90
+            filters:
+                thumbnail:
+                    size: [800, 600]
+                    mode: inset
+                    allow_upscale: false
+
+        # Logo partenaire
+        partner_logo:
+            quality: 90
+            filters:
+                thumbnail:
+                    size: [200, 100]
+                    mode: inset
+                    allow_upscale: false
+
+        # Avatar utilisateur
+        avatar:
+            quality: 85
+            filters:
+                thumbnail:
+                    size: [150, 150]
+                    mode: outbound
+                    allow_upscale: false
+
+        # Image portfolio
+        portfolio_thumb:
+            quality: 85
+            filters:
+                thumbnail:
+                    size: [350, 250]
+                    mode: outbound
+                    allow_upscale: false
+
+        portfolio_full:
+            quality: 90
+            filters:
+                thumbnail:
+                    size: [1200, 800]
+                    mode: inset
+                    allow_upscale: false

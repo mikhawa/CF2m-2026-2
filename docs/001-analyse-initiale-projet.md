@@ -359,7 +359,7 @@ Root password: root
 
 ### Phase 3: Frontend (À FAIRE)
 
-- [ ] Ajouter Bootstrap 5.3
+- [X] Ajouter Bootstrap 5.3
 - [ ] Créer layout principal
 - [ ] Créer page d'accueil
 - [ ] Créer page formations

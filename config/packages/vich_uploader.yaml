@@ -1,0 +1,62 @@
+vich_uploader:
+    db_driver: orm
+
+    metadata:
+        type: attribute
+
+    mappings:
+        formation_image:
+            uri_prefix: /uploads/formations
+            upload_destination: '%kernel.project_dir%/public/uploads/formations'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+
+        testimonial_image:
+            uri_prefix: /uploads/testimonials
+            upload_destination: '%kernel.project_dir%/public/uploads/testimonials'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+
+        partner_logo:
+            uri_prefix: /uploads/partners
+            upload_destination: '%kernel.project_dir%/public/uploads/partners'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+
+        article_image:
+            uri_prefix: /uploads/articles
+            upload_destination: '%kernel.project_dir%/public/uploads/articles'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+
+        portfolio_image:
+            uri_prefix: /uploads/portfolio
+            upload_destination: '%kernel.project_dir%/public/uploads/portfolio'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+
+        user_avatar:
+            uri_prefix: /uploads/users
+            upload_destination: '%kernel.project_dir%/public/uploads/users'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+
+        user_cv:
+            uri_prefix: /uploads/cv
+            upload_destination: '%kernel.project_dir%/public/uploads/cv'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
