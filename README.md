@@ -12,4 +12,10 @@
 - Lancer PHP : `docker compose exec -it php bash` ou `dphp`
 
 ### Après la création de l'entité User
-Il faut modifier celle-ci manuellement.
+Il faut modifier celle-ci manuellement : 
+
+docs\005-entite-user.md
+
+et 
+
+src\Entity\User.php et src\Repository\UserRepository.php
