@@ -4,14 +4,14 @@ services:
     build:
       context: ./docker/php
       dockerfile: Dockerfile
-    container_name: cf2m_php
+    container_name: cf2m2_php
     restart: unless-stopped
     working_dir: /var/www/html
     volumes:
       - ./:/var/www/html
-      - composer_cache:/home/www/.composer
+      - composer2_cache:/home/www/.composer
     networks:
-      - cf2m_network
+      - cf2m2_network
     depends_on:
       - mariadb
 
@@ -20,14 +20,14 @@ services:
     build:
       context: ./docker/nginx
       dockerfile: Dockerfile
-    container_name: cf2m_nginx
+    container_name: cf2m2_nginx
     restart: unless-stopped
     ports:
       - "8080:80"
     volumes:
       - ./:/var/www/html:ro
     networks:
-      - cf2m_network
+      - cf2m2_network
     depends_on:
       - php
 
@@ -36,7 +36,7 @@ services:
     build:
       context: ./docker/mariadb
       dockerfile: Dockerfile
-    container_name: cf2m_mariadb
+    container_name: cf2m2_mariadb
     restart: unless-stopped
     ports:
       - "3307:3306"
@@ -46,25 +46,25 @@ services:
       MYSQL_USER: ${MYSQL_USER:-cf2m}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:-cf2m}
     volumes:
-      - mariadb_data:/var/lib/mysql
+      - mariadb2_data:/var/lib/mysql
     networks:
-      - cf2m_network
+      - cf2m2_network
 
   # Mailhog Service (Email testing for development)
   mailhog:
     image: mailhog/mailhog:latest
-    container_name: cf2m_mailhog
+    container_name: cf2m2_mailhog
     restart: unless-stopped
     ports:
       - "1025:1025"   # SMTP server
       - "8025:8025"   # Web UI
     networks:
-      - cf2m_network
+      - cf2m2_network
 
   # phpMyAdmin Service (Database management)
   phpmyadmin:
     image: phpmyadmin:latest
-    container_name: cf2m_phpmyadmin
+    container_name: cf2m2_phpmyadmin
     restart: unless-stopped
     ports:
       - "8081:80"
@@ -75,16 +75,16 @@ services:
       PMA_PASSWORD: ${MYSQL_PASSWORD:-cf2m}
       UPLOAD_LIMIT: 50M
     networks:
-      - cf2m_network
+      - cf2m2_network
     depends_on:
       - mariadb
 
 networks:
-  cf2m_network:
+  cf2m2_network:
     driver: bridge
 
 volumes:
-  mariadb_data:
+  mariadb2_data:
     driver: local
-  composer_cache:
+  composer2_cache:
     driver: local
