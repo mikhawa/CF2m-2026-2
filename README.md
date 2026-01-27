@@ -10,3 +10,6 @@
 - Démarrer les conteneurs : `docker-compose up -d` ou `dup`
 - Arrêter les conteneurs : `docker-compose down` ou `ddo`
 - Lancer PHP : `docker compose exec -it php bash` ou `dphp`
+
+### Après la création de l'entité User
+Il faut modifier celle-ci manuellement.
